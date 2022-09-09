@@ -1,6 +1,8 @@
 package com.example.hiltexample.data.models
 
 import com.example.hiltexample.ui.cources.models.ActiveCourcesModel
+import com.example.hiltexample.ui.cources.models.NewCursesModel
+import com.example.hiltexample.ui.cources.models.toIconType
 import com.squareup.moshi.Json
 
 data class CourcesModel(
@@ -48,5 +50,16 @@ data class CourcesModel(
                 image = it.image
             )
         }
+    }
+
+    fun toNewCoursesList(): List<NewCursesModel> = this.newCourses.map {
+        NewCursesModel(
+            id = it.id,
+            iconType = it.iconType.toIconType(),
+            duration = it.duration,
+            title = it.title,
+            question = it.question,
+            mainColor = it.mainColor
+        )
     }
 }

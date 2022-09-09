@@ -35,15 +35,14 @@ class VerticalAdapter :
             val colorBackground = Color.parseColor("#$opsBck${model.mainColor}")
             val colorText = Color.parseColor("#${model.mainColor}")
             val colorPlayButton = Color.parseColor("#$opsPlay${model.mainColor}")
-            with(binding){
-                //rm.setBackgroundColor(color)
+            with(binding) {
                 rm.backgroundTintList = ColorStateList.valueOf(colorBackground)
                 image.load(model.image)
                 progressBar.progress = model.progress
-                time.text = model.buckingTime
+                time.text = "${model.title}\n${model.buckingTime}"
                 time.setTextColor(colorText)
+                progressBar.progressTintList = ColorStateList.valueOf(colorText)
                 play.backgroundTintList = ColorStateList.valueOf(colorPlayButton)
-                //time.setBackgroundColor(colo r)
             }
         }
     }

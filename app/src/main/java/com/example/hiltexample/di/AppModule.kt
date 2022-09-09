@@ -3,6 +3,8 @@ package com.example.hiltexample.di
 import com.example.hiltexample.data.apis.CourcesApi
 import com.example.hiltexample.data.repositorys.ActiveCourcesRepository
 import com.example.hiltexample.data.repositorys.ActiveCourcesRepositoryImpl
+import com.example.hiltexample.data.repositorys.NewCourcesRepository
+import com.example.hiltexample.data.repositorys.NewCourcesRepositoryImpl
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -19,6 +21,12 @@ class AppModule {
     @Provides
     @Singleton
     fun getActiveCourcesRepository(api: CourcesApi): ActiveCourcesRepository = ActiveCourcesRepositoryImpl(api)
+
+
+    @Provides
+    @Singleton
+    fun getNewCourcesRepository(api: CourcesApi): NewCourcesRepository = NewCourcesRepositoryImpl(api)
+
 
     @Provides
     @Singleton

@@ -5,11 +5,10 @@ import com.example.hiltexample.data.responsestate.ResponseState
 import com.example.hiltexample.ui.cources.models.ActiveCourcesModel
 import javax.inject.Inject
 
-class ActiveCourcesRepositoryImpl @Inject constructor(
+class ActiveCourcesRepositoryImpl(
     private val api: CourcesApi
 ) : ActiveCourcesRepository {
-    override suspend fun getData(): ResponseState<List<ActiveCourcesModel>>
-    {
+    override suspend fun getData(): ResponseState<List<ActiveCourcesModel>> {
         return try {
             val response = api.getData()
             if (response.isSuccessful) {
