@@ -35,7 +35,7 @@ class HorizontalAdapter :
                 root.backgroundTintList = ColorStateList.valueOf(color)
                 title.text = model.title
                 icon.setImageResource(model.iconType.getIcon())
-                val timeMin = TimeUnit.MICROSECONDS.toMinutes(model.duration)
+                val timeMin = TimeUnit.SECONDS.toMinutes(model.duration)
                 duration.text = "${timeMin} min"
                 question.text = model.question
             }
